@@ -1,0 +1,56 @@
+body {
+   background-color: rgb(129, 37, 59);
+   color: white;
+   font-size: 18px;
+   box-sizing: border-box;
+}
+
+h2, p {
+   text-align: center;
+   font-weight: 700;
+}
+
+p.important {
+   font-size: 30px;
+   color: rgb(238, 238, 158);
+   font-weight: 700;
+}
+
+h2 {
+   font-weight: 700;
+   font-size: 45px;
+}
+
+table {
+   border: 1px solid black;
+   border-top: none;
+}
+
+table, td, th {
+   border: 1px solid black;
+   text-align: center;
+   transition: all 0.25s ease-in-out;
+}
+
+th {
+   border-top: none;
+}
+
+td, th {
+   border-bottom: none;
+   border-left: none;
+}
+
+td:last-child, th:last-child {
+   border-right: none;
+}
+
+th {
+   font-weight: 700;
+   font-size: 35px;
+}
+
+tr:hover {
+   background-color: rgb(238, 238, 158);
+   color: black;
+}

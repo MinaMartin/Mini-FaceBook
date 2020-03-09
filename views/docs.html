@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="styleSheet" href="style.css">
+</head>
+
+<body>
+    <h2>Posts</h2>
+    <p>All the paths starts with /posts --> Ex. for end point /add-post the path becomes /posts/add-post </p>
+    <p class="important">Authentication token -which is valid for only 1 hour- must be included in the header of each request of the movies</p>
+    <table>
+        <tr>
+            <th>End Points</th>
+            <th>Request Method</th>
+            <th>message</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>/</td>
+            <td>GET</td>
+            <td>All the Posts</td>
+            <td>
+                pagination is always on when you get all posts or search for posts title<br> query params (title) are for search for Ex. <br> posts?title=h --> search by posts title containing letter h (cas insenitive)
+            </td>
+        </tr>
+        <tr>
+            <td>/:postId</td>
+            <td>GET</td>
+            <td>Requested Post</td>
+            <td>Each Post has its own Comments,number Of Comments , number Of Reactions</td>
+        </tr>
+        <tr>
+            <td>/add-post</td>
+            <td>POST</td>
+            <td>Post Created</td>
+            <td>
+                req body Ex.: <br> {"title":"How to be Fit","content":"By Sports"} <br> ofcourse
+            </td>
+        </tr>
+        <tr>
+            <td>/edit-post/:postId</td>
+            <td>PATCH</td>
+            <td>Post Updated</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <td>/:postId</td>
+            <td>DELETE</td>
+            <td>Post Removed</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <td>/add-comment/:postId</td>
+            <td>POST</td>
+            <td>Comment Added</td>
+            <td>
+                req body Ex.: <br> {"content":"Great Post"}
+            </td>
+        </tr>
+        <tr>
+            <td>/:postId/edit-comment/:commentId</td>
+            <td>PATCH</td>
+            <td>Comment Updated</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <td>/:postId/remove-comment/:commentId</td>
+            <td>DELETE</td>
+            <td>Comment Removed</td>
+            <td>---</td>
+        </tr>
+        <tr>
+            <td>/:postId/add-reaction/:reactionId</td>
+            <td>POST</td>
+            <td>Reaction Added</td>
+            <td>id = 1 for like && id=2 for a dislike && id=3 for a love</td>
+        </tr>
+        <tr>
+            <td>/:postId/remove-reaction/:reactionId</td>
+            <td>POST</td>
+            <td>Reaction Removed</td>
+            <td>id = 1 for like && id=2 for a dislike && id=3 for a love</td>
+        </tr>
+    </table>
+
+
+    <h2>Authentication</h2>
+    <p>All the pathes starts with /auth --> Ex. for end point /login the path becomes /auth/login </p>
+    <table>
+        <tr>
+            <th>End Points</th>
+            <th>Request Method</th>
+            <th>message</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td>/signUp</td>
+            <td>POST</td>
+            <td>User Signed up Successfully</td>
+            <td>
+                req body Ex.: <br> {"name":"...","email":"test@test.com","password":'123456',"confirmedPassword":'123456'}
+                <br> the email field must contain a valid email address <br> If the same email found in the DB an error message occured ('Email Already Exists') <br> password with min length = 5 and max length = 12 <br> name field cannot be empty <br>                ofcourse password and confirmed password must be equal
+            </td>
+        </tr>
+        <tr>
+            <td>/login</td>
+            <td>POST</td>
+            <td>User Signed In Successfully</td>
+            <td>
+                {"email":"test@test.com","password":'123456'} <br> If the email is not found in the DB A error message occured ('No User with this email') <br> password with min length = 5 and max length = 12
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
